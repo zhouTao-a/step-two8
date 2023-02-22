@@ -1,0 +1,1 @@
+package com.cloud.mybatis.util;/** * @Author zhouTao * @Date 2023/2/7 */public class CommonUtils {    public Integer add(int a, int b) {        return a + b;    }    public static Integer sum(int a, int b) {        return a + b;    }}

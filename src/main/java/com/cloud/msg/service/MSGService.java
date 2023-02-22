@@ -1,0 +1,1 @@
+package com.cloud.msg.service;import java.util.HashMap;import java.util.Map;/** * @Author zhouTao * @Date 2023/2/21 */public interface MSGService {    boolean send(HashMap map, String phone);    boolean sendSms(String phone);    boolean send(String content, String phone);}

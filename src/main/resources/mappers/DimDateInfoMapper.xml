@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.mybatis.mapper.DimDateInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cloud.mybatis.entity.DimDateInfo">
+        <id column="id" property="id" />
+        <result column="date" property="date" />
+        <result column="year" property="year" />
+        <result column="quarter" property="quarter" />
+        <result column="quarter_cn" property="quarterCn" />
+        <result column="month" property="month" />
+        <result column="month_cn" property="monthCn" />
+        <result column="month_en" property="monthEn" />
+        <result column="week" property="week" />
+        <result column="week_cn" property="weekCn" />
+        <result column="week_en" property="weekEn" />
+        <result column="week_of_year" property="weekOfYear" />
+        <result column="day_of_month" property="dayOfMonth" />
+        <result column="day_of_year" property="dayOfYear" />
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id,date,year,quarter,quarter_cn,month,month_cn,month_en,week,week_cn,week_en,
+            week_of_year,day_of_month,day_of_year
+    </sql>
+
+    <sql id="BaseTable">
+        dim_date_info
+    </sql>
+
+    <select id="getByDate" resultMap="BaseResultMap">
+        select <include refid="BaseColumn"/>
+            from <include refid="BaseTable"/>
+            <where>
+                date = #{date}
+            </where>
+    </select>
+    <select id="showTable" resultMap="BaseResultMap">
+        select * from <include refid="BaseTable"/> where true
+    </select>
+
+</mapper>

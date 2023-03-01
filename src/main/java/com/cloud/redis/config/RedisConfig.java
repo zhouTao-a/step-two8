@@ -27,7 +27,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(factory);
 
-		FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<Object>(Object.class);
+		FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
 
 		// 设置值（value）的序列化采用FastJsonRedisSerializer。
 		redisTemplate.setValueSerializer(fastJsonRedisSerializer);

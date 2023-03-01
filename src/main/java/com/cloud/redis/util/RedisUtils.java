@@ -5,10 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -318,7 +315,7 @@ public class RedisUtils {
 			return redisTemplate.opsForSet().members(key);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return new HashSet<>();
 		}
 	}
 
@@ -399,8 +396,7 @@ public class RedisUtils {
 	 */
 	public long setRemove(String key, Object... values) {
 		try {
-			Long count = redisTemplate.opsForSet().remove(key, values);
-			return count;
+			return redisTemplate.opsForSet().remove(key, values);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
@@ -421,7 +417,7 @@ public class RedisUtils {
 			return redisTemplate.opsForList().range(key, start, end);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return new ArrayList<>();
 		}
 	}
 
@@ -560,8 +556,7 @@ public class RedisUtils {
 	 */
 	public long lRemove(String key, long count, Object value) {
 		try {
-			Long remove = redisTemplate.opsForList().remove(key, count, value);
-			return remove;
+			return redisTemplate.opsForList().remove(key, count, value);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;

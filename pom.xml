@@ -4,6 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>gp_demo</module>
+		<module>concurrent</module>
+		<module>step-two</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
